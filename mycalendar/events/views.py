@@ -8,7 +8,4 @@ def index(request):
     res = '<h1>Список событий</h1>'
     for i in events:
         res += f'<div>\n<p>{i.title}</p>\n<p>{i.description_event}</p>\n</div>\n<hr>'
-    return HttpResponse(res)
-
-def test(request):
-    return HttpResponse('<h1>Тестовая страница</h1>')
+    return render(request, 'events/index.html', {'events': events, 'title': 'Список событий'})
