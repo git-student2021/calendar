@@ -12,7 +12,7 @@
     <div>
         <p>{{ item.title }}</p>
         <p>{{ item.description_event }}</p>
-        <p>{{ item.start_of_the_event }}</p>
+        <p>{{ item.start_of_the_event|date:"Y-m-d H:i" }}</p>
     </div>
     <hr>
 {% endfor %}
