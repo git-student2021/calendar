@@ -19,3 +19,6 @@ class Events(models.Model):
     start_of_the_event = models.DateTimeField(default=timezone.now, verbose_name="Дата начала")
     end_event = models.DateTimeField(default=one_week_hence, verbose_name="Дата завершения")
     need_for_notification = models.BooleanField(default=True, verbose_name="Напомнить")
+
+    def __str__(self):
+        return self.title
