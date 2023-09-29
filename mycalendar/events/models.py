@@ -22,3 +22,8 @@ class Events(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'
+        ordering = ['start_of_the_event']
