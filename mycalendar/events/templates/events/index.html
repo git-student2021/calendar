@@ -50,9 +50,19 @@
   </div>
 </nav>
 
+    <div class="container mt-3">
 
+        <h1>{{ title  }}</h1>
+        <div class="row">
 
-<div class="DatesMain">
+            <div class="col-md-4">
+                <div class="list-group">
+                    {% for item in intervals %}
+                    <a href="#" class="list-group-item list-group-item-action">{{ item.title }}</a>
+                    {% endfor %}
+                </div>
+
+                <div class="DatesMain mt-3">
     <table class="DatesNav">
         <tbody>
             <tr>
@@ -154,14 +164,9 @@
         </tbody>
     </table>
 </div>
+            </div>
 
-
-
-
-    <div class="container mt-3">
-        <h1>{{ title  }}</h1>
-        <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 {% for item in  events %}
                 <div class="card mb-3">
                     <div class="card-header">
@@ -169,7 +174,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ item.title }}</h5>
-                        <p class="card-text">{{ item.description_event }}</p>
+                        <p class="card-text">{{ item.description_event|truncatewords:50 }}</p>
                         <a href="#" class="btn btn-primary">Read more...</a>
                     </div>
                     <div class="card-footer text-body-secondary">
