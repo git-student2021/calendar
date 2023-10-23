@@ -1,5 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 
 from .models import Events, Time_interval
 
@@ -17,5 +16,6 @@ def get_interval(request, interval_id):
     return render(request, 'events/interval.html', {'events': events, 'interval': interval})
 
 def view_events(request, events_id):
-    events_item = Events.objects.get(pk=events_id)
+    # events_item = Events.objects.get(pk=events_id)
+    events_item = get_object_or_404(Events, pk=events_id)
     return render(request, 'events/view_events.html', {'events_item': events_item})
