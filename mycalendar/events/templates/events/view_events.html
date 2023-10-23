@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ events_item.title }}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<div class="card mb-3">
+    <div class="card-header">
+        Интервал: <a href="{{ events_item.interval.get_absolute_url }}">{{ events_item.interval }}</a>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ events_item.title }}</h5>
+        <p class="card-text">{{ events_item.description_event}}</p>
+    </div>
+    <div class="card-footer text-body-secondary">
+        {{ events_item.start_of_the_event|date:"Y-m-d H:i" }}
+    </div>
+</div>
+
+{% endblock %}

@@ -21,6 +21,9 @@ class Events(models.Model):
     need_for_notification = models.BooleanField(default=True, verbose_name="Напомнить")
     interval = models.ForeignKey('Time_interval', on_delete=models.PROTECT, null=True, verbose_name="Интервал")
 
+    def get_absolute_url(self):
+        return reverse('view_events', kwargs={"events_id": self.pk})
+
     def __str__(self):
         return self.title
 

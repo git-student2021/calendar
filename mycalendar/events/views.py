@@ -15,3 +15,7 @@ def get_interval(request, interval_id):
     events = Events.objects.filter(interval_id=interval_id)
     interval = Time_interval.objects.get(pk=interval_id)
     return render(request, 'events/interval.html', {'events': events, 'interval': interval})
+
+def view_events(request, events_id):
+    events_item = Events.objects.get(pk=events_id)
+    return render(request, 'events/view_events.html', {'events_item': events_item})

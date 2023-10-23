@@ -17,7 +17,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
                 <p class="card-text">{{ item.description_event|truncatewords:50 }}</p>
-                <a href="#" class="btn btn-primary">Read more...</a>
+                <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
             </div>
             <div class="card-footer text-body-secondary">
                 {{ item.start_of_the_event|date:"Y-m-d H:i" }}
