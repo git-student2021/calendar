@@ -1,6 +1,6 @@
 from django.utils import timezone
 from django.db import models
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 def one_week_hence():
     return timezone.now() + timezone.timedelta(days=7)
@@ -31,6 +31,9 @@ class Events(models.Model):
 
 class Time_interval(models.Model):
     title = models.CharField(max_length=150, db_index=True, verbose_name="Интервал")
+
+    def get_absolute_url(self):
+        return reverse('interval', kwargs={"interval_id": self.pk})
 
     def __str__(self):
         return self.title

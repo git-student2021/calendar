@@ -12,7 +12,7 @@
     {% for item in  events %}
         <div class="card mb-3">
             <div class="card-header">
-                Интервал: <a href="{% url 'interval' item.pk %}">{{ item.interval }}</a>
+                Интервал: <a href="{{ item.interval.get_absolute_url }}">{{ item.interval }}</a>
             </div>
             <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
