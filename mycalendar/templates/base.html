@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}" >
-
     <title>{% block title %}События со всего мира{% endblock %}</title>
   </head>
   <body>
@@ -16,12 +15,19 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-md-4">
-            {% block sidebar %}SIDEBAR{% endblock %}
-            {% include 'inc/_calen.html' %}
+        <div class="col-md-2">
+            <div class="bb" style="text-align: center;">{% include 'inc/_calen.html' %}</div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-5 " style="text-align: center;">
+            <h1>EVENTS</h1>
+            <a class="nav-link" href="{% url 'home' %}"><h1>Добавить событие</h1></a>
+            {% block sidebar %}SIDEBAR{% endblock %}
             {% block content %}CONTENT{% endblock %}
+        </div>
+        <div class="col-md-5" style="text-align: center;">
+            <h1>HOLIDAYS</h1>
+            <h1>SIDEBAR</h1>
+            <h1>CONTENT</h1>
         </div>
 
     </div>

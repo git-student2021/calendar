@@ -1,3 +1,53 @@
-body{
-    background-color: #ccc;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fefefe;
+}
+
+
+.bb {
+    border: 1px solid blue;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+header {
+    height: 120px;
+    background: #4950576e;
+    padding-top: 15px;
+    margin-bottom: 50px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+
+}
+.authentication {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 150px 20px 20px;
+}
+
+ul {
+    list-style-type:  none;
+}
+
+.authentication > li:not(:last-child) {
+    margin-right: 20px;
+}
+
+.h {
+    margin: 20px 20px 20px 150px;
+}
+
+.data {
+    margin: 20px 20px 20px 175px;
 }
