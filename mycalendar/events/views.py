@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from .models import Events, Time_interval
+from .forms import EventsForm
 
 def index(request):
     events = Events.objects.all()
@@ -19,3 +20,10 @@ def view_events(request, events_id):
     # events_item = Events.objects.get(pk=events_id)
     events_item = get_object_or_404(Events, pk=events_id)
     return render(request, 'events/view_events.html', {'events_item': events_item})
+
+def add_events(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = EventsForm()
+    return render(request, 'events/add_events.html', {'form': form})
