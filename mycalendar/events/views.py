@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import Events, Time_interval
 from .forms import EventsForm
@@ -23,7 +23,11 @@ def view_events(request, events_id):
 
 def add_events(request):
     if request.method == 'POST':
-        pass
+        form = EventsForm(request.POST)
+        if form.is_valid():
+            # print(form.cleaned_data)
+            events = Events.objects.create(**form.cleaned_data)
+            return redirect(events)
     else:
         form = EventsForm()
     return render(request, 'events/add_events.html', {'form': form})
